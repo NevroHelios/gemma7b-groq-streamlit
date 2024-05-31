@@ -29,7 +29,7 @@ This repository provides a streamlined solution for converting a PDF document in
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/gemma7b-groq-streamlit.git
+   git clone https://github.com/NevroHelios/gemma7b-groq-streamlit.git
    cd gemma7b-groq-streamlit
    ```
 
@@ -82,6 +82,6 @@ Special thanks to the developers and contributors of GEMMA 7B, GROQ, and Streaml
 
 ---
 
-Feel free to explore, use, and contribute to this repository. If you have any questions or need assistance, please open an issue or contact the maintainers.
+Feel free to explore, use, and contribute to this repository. If you have any questions or need assistance, please open an issue.
 
 Happy coding!
