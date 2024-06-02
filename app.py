@@ -29,7 +29,7 @@ llm = ChatGroq(groq_api_key=groq_api_key, model="Gemma-7b-It")
 
 prompt = ChatPromptTemplate.from_template(
     """
-    Answer the question based on the provided context. If the question can't be answered based on the context, say "Sorry, I don't know".
+    Answer the question based on the provided context. Try to understand the context in as much detail as possible.And sometime use your creativity.
     Please provide the most accurate responce based on the question.
     <context>
     {context}
@@ -59,6 +59,15 @@ def vector_embedding():
 # taking user input
 prompt1=st.text_input("Enter Your Question From Doduments")
 
+path = 'data'
+files = st.file_uploader("Upload your documents", type=["pdf"], accept_multiple_files=True)
+if files:
+    for file in files:
+        file_path = os.path.join(path, file.name)
+        with open(file_path, 'wb') as f:
+            f.write(file.read())
+
+    # vector_embedding()
 
 if st.button("Documents Embedding"):
     vector_embedding()
@@ -77,6 +86,7 @@ if prompt1:
         response=retrieval_chain.invoke({'input':prompt1})
         print("Response time :",time.process_time()-start)
         st.write(response['answer'])
+        st.write("Response time :",time.process_time()-start)
 
         # With a streamlit expander
         with st.expander("Document Similarity Search"):
